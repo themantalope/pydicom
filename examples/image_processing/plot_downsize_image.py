@@ -1,6 +1,6 @@
 """
 ================================
-Downsize MRI image using pydicom
+Downsize MRI image using pydicom_ext
 ================================
 
 This example shows how to downsize an MR image from :math:`512 \times 512` to
@@ -16,14 +16,14 @@ instead of averagin the pixels. Finally, the image is store as a dicom image.
 # authors : Guillaume Lemaitre <g.lemaitre58@gmail.com>
 # license : MIT
 
-import pydicom
-from pydicom.data import get_testdata_files
+import pydicom_ext
+from pydicom_ext.data import get_testdata_files
 
 print(__doc__)
 
 # FIXME: add a full-sized MR image in the testing data
 filename = get_testdata_files('MR_small.dcm')[0]
-ds = pydicom.dcmread(filename)
+ds = pydicom_ext.dcmread(filename)
 
 # get the pixel information into a numpy array
 data = ds.pixel_array

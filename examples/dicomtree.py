@@ -1,7 +1,7 @@
-# Copyright pydicom authors 2019. See LICENSE file for details
+# Copyright pydicom_ext authors 2019. See LICENSE file for details
 """
 sudo apt install tix-dev
-sudo pip install -U pydicom
+sudo pip install -U pydicom_ext
 python3 dicomtree.py file.dcm
 Or in file browser, right click on file.dcm, open with custom command:
 python3 dicomtree.py
@@ -14,7 +14,7 @@ Show a dicom file using a hierarchical tree in a graphical window.
 
 from __future__ import print_function
 
-from pydicom import compat
+from pydicom_ext import compat
 
 if compat.in_py2:
     import Tix as tkinter_tix
@@ -53,7 +53,7 @@ def RunTree(w, filename):
 
 def show_file(filename, tree):
     tree.hlist.add("root", text=filename)
-    ds = pydicom.dcmread(sys.argv[1])
+    ds = pydicom_ext.dcmread(sys.argv[1])
     ds.decode()  # change strings to unicode
     recurse_tree(tree, ds, "root", False)
     tree.autosetmode()
@@ -82,7 +82,7 @@ def recurse_tree(tree, dataset, parent, hide=False):
 
 if __name__ == '__main__':
     import sys
-    import pydicom
+    import pydicom_ext
     if len(sys.argv) != 2:
         print("Please supply a dicom file name:\n")
         print(usage)

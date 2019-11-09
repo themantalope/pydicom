@@ -1,12 +1,12 @@
-# Copyright 2008-2018 pydicom authors. See LICENSE file for details.
+# Copyright 2008-2018 pydicom_ext authors. See LICENSE file for details.
 """List summary info for the test files in the charset directory"""
 
 from glob import glob
 import logging
 import os
 
-import pydicom
-from pydicom.data import get_charset_files
+import pydicom_ext
+from pydicom_ext.data import get_charset_files
 
 
 if __name__ == "__main__":
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     # Collect summary information from the files
     files_info = []
     for name in names:
-        ds = pydicom.dcmread(name)
+        ds = pydicom_ext.dcmread(name)
         ds.decode()
         fname = os.path.basename(name)
         try:

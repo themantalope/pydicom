@@ -13,9 +13,9 @@ This example shows how to read DICOM directory.
 from os.path import dirname, join
 from pprint import pprint
 
-import pydicom
-from pydicom.data import get_testdata_files
-from pydicom.filereader import read_dicomdir
+import pydicom_ext
+from pydicom_ext.data import get_testdata_files
+from pydicom_ext.filereader import read_dicomdir
 
 # fetch the path to the test data
 filepath = get_testdata_files('DICOMDIR')[0]
@@ -59,7 +59,7 @@ for patient_record in dicom_dir.patient_records:
             image_filenames = [join(base_dir, *image_rec.ReferencedFileID)
                                for image_rec in image_records]
 
-            datasets = [pydicom.dcmread(image_filename)
+            datasets = [pydicom_ext.dcmread(image_filename)
                         for image_filename in image_filenames]
 
             patient_names = set(ds.PatientName for ds in datasets)

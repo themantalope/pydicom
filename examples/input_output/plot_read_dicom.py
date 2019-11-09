@@ -12,13 +12,13 @@ information, and show it using matplotlib.
 # license : MIT
 
 import matplotlib.pyplot as plt
-import pydicom
-from pydicom.data import get_testdata_files
+import pydicom_ext
+from pydicom_ext.data import get_testdata_files
 
 print(__doc__)
 
 filename = get_testdata_files('CT_small.dcm')[0]
-dataset = pydicom.dcmread(filename)
+dataset = pydicom_ext.dcmread(filename)
 
 # Normal mode:
 print()

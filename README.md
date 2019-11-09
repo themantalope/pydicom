@@ -1,4 +1,7 @@
-pydicom
+pydicom-ext
+
+Few minor additions to pydicom
+
 =======
 
 [![Build Status](https://travis-ci.org/pydicom/pydicom.svg?branch=master)](https://travis-ci.org/pydicom/pydicom)

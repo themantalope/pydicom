@@ -14,7 +14,7 @@ except ImportError:
 
 # get __version__ from _version.py
 base_dir = os.path.dirname(os.path.realpath(__file__))
-ver_file = os.path.join(base_dir, 'pydicom', '_version.py')
+ver_file = os.path.join(base_dir, 'pydicom_ext', '_version.py')
 with open(ver_file) as f:
     exec(f.read())
 
@@ -48,14 +48,14 @@ CLASSIFIERS = [
 
 KEYWORDS = "dicom python medical imaging"
 
-NAME = "pydicom"
+NAME = "pydicom_ext"
 AUTHOR = "Darcy Mason and contributors"
 AUTHOR_EMAIL = "darcymason@gmail.com"
 MAINTAINER = "Darcy Mason and contributors"
 MAINTAINER_EMAIL = "darcymason@gmail.com"
 DESCRIPTION = description
-URL = "https://github.com/pydicom/pydicom"
-DOWNLOAD_URL = "https://github.com/pydicom/pydicom/archive/master.zip"
+URL = "https://github.com/pydicom_ext/pydicom_ext"
+DOWNLOAD_URL = "https://github.com/pydicom_ext/pydicom_ext/archive/master.zip"
 LICENSE = "MIT"
 VERSION = __version__
 REQUIRES = []
@@ -69,16 +69,16 @@ with open(os.path.join(BASE_PATH, 'README.md')) as f:
 
 def data_files_inventory():
     data_files = []
-    data_roots = ['pydicom/data']
+    data_roots = ['pydicom_ext/data']
     for data_root in data_roots:
         for root, subfolder, files in os.walk(data_root):
-            files = [x.replace('pydicom/', '') for x in glob(root + '/*')
+            files = [x.replace('pydicom_ext/', '') for x in glob(root + '/*')
                      if not os.path.isdir(x)]
             data_files = data_files + files
     return data_files
 
 
-PACKAGE_DATA = {'pydicom': data_files_inventory()}
+PACKAGE_DATA = {'pydicom_ext': data_files_inventory()}
 
 opts = dict(name=NAME,
             version=VERSION,

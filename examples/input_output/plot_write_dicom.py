@@ -3,7 +3,7 @@
 Write DICOM data
 ================
 
-This example shows how to write a DICOM file from scratch using pydicom. This
+This example shows how to write a DICOM file from scratch using pydicom_ext. This
 example does not produce a DICOM standards compliant file as written, you will
 have to change UIDs to valid values and add all required DICOM data elements.
 
@@ -16,8 +16,8 @@ import os
 import tempfile
 import datetime
 
-import pydicom
-from pydicom.dataset import Dataset, FileDataset
+import pydicom_ext
+from pydicom_ext.dataset import Dataset, FileDataset
 
 # Create some temporary filenames
 suffix = '.dcm'
@@ -56,9 +56,9 @@ print("Writing test file", filename_little_endian)
 ds.save_as(filename_little_endian)
 print("File saved.")
 
-# Write as a different transfer syntax XXX shouldn't need this but pydicom
+# Write as a different transfer syntax XXX shouldn't need this but pydicom_ext
 # 0.9.5 bug not recognizing transfer syntax
-ds.file_meta.TransferSyntaxUID = pydicom.uid.ExplicitVRBigEndian
+ds.file_meta.TransferSyntaxUID = pydicom_ext.uid.ExplicitVRBigEndian
 ds.is_little_endian = False
 ds.is_implicit_VR = False
 
@@ -68,7 +68,7 @@ ds.save_as(filename_big_endian)
 # reopen the data just for checking
 for filename in (filename_little_endian, filename_big_endian):
     print('Load file {} ...'.format(filename))
-    ds = pydicom.dcmread(filename)
+    ds = pydicom_ext.dcmread(filename)
     print(ds)
 
     # remove the created file

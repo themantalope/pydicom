@@ -7,8 +7,8 @@ This examples illustrates how to work with sequences.
 
 """
 
-from pydicom.sequence import Sequence
-from pydicom.dataset import Dataset
+from pydicom_ext.sequence import Sequence
+from pydicom_ext.dataset import Dataset
 
 # create to toy datasets
 block_ds1 = Dataset()

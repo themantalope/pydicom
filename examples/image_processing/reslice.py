@@ -22,7 +22,7 @@ location, building a 3D image and reslicing it in different planes.
    http://www.pcir.org/researchers/54879843_20060101.html
 """
 
-import pydicom
+import pydicom_ext
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
@@ -33,7 +33,7 @@ files = []
 print('glob: {}'.format(sys.argv[1]))
 for fname in glob.glob(sys.argv[1], recursive=False):
     print("loading: {}".format(fname))
-    files.append(pydicom.read_file(fname))
+    files.append(pydicom_ext.read_file(fname))
 
 print("file count: {}".format(len(files)))
 

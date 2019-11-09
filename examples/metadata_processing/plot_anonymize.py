@@ -17,8 +17,8 @@ from __future__ import print_function
 
 import tempfile
 
-import pydicom
-from pydicom.data import get_testdata_files
+import pydicom_ext
+from pydicom_ext.data import get_testdata_files
 
 print(__doc__)
 
@@ -27,7 +27,7 @@ print(__doc__)
 ###############################################################################
 
 filename = get_testdata_files('MR_small.dcm')[0]
-dataset = pydicom.dcmread(filename)
+dataset = pydicom_ext.dcmread(filename)
 
 data_elements = ['PatientID',
                  'PatientBirthDate']
@@ -59,7 +59,7 @@ dataset.walk(person_names_callback)
 dataset.walk(curves_callback)
 
 ###############################################################################
-# pydicom allows to remove private tags using ``remove_private_tags`` method
+# pydicom_ext allows to remove private tags using ``remove_private_tags`` method
 
 dataset.remove_private_tags()
 

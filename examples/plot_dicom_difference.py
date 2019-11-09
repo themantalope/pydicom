@@ -12,15 +12,15 @@ This examples illustrates how to find the differences between two DICOM files.
 
 import difflib
 
-import pydicom
-from pydicom.data import get_testdata_files
+import pydicom_ext
+from pydicom_ext.data import get_testdata_files
 
 print(__doc__)
 
 filename_mr = get_testdata_files('MR_small.dcm')[0]
 filename_ct = get_testdata_files('CT_small.dcm')[0]
 
-datasets = tuple([pydicom.dcmread(filename, force=True)
+datasets = tuple([pydicom_ext.dcmread(filename, force=True)
                   for filename in (filename_mr, filename_ct)])
 
 # difflib compare functions require a list of lines, each terminated with

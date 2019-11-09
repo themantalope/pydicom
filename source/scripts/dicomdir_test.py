@@ -1,11 +1,11 @@
-# Copyright 2008-2018 pydicom authors. See LICENSE file for details.
-"""Temporary test file for pydicom development; will change over revisions
+# Copyright 2008-2018 pydicom_ext authors. See LICENSE file for details.
+"""Temporary test file for pydicom_ext development; will change over revisions
 as test various things
 """
 
-from pydicom import dcmread
-from pydicom.data import get_testdata_files
-# pydicom.debug()
+from pydicom_ext import dcmread
+from pydicom_ext.data import get_testdata_files
+# pydicom_ext.debug()
 
 
 if __name__ == "__main__":
