@@ -6,11 +6,11 @@ import os
 import re
 import tokenize
 
-from pydicom_ext.compat import in_py2
+from pydicom.compat import in_py2
 
-import pydicom_ext
+import pydicom
 
-from pydicom_ext._uid_dict import UID_dictionary
+from pydicom._uid_dict import UID_dictionary
 
 STORAGE_REGEX = re.compile('.*(Storage|Storage SOP Class|Storage - '
                            'For Presentation|Storage - For Processing)$')
@@ -90,7 +90,7 @@ def generate_uids(filename):
             % os.path.basename(__file__))
         uid_file.write(doc_string)
         uid_file.write('from __future__ import absolute_import\n')
-        uid_file.write('from pydicom_ext.uid import UID\n\n')
+        uid_file.write('from pydicom.uid import UID\n\n')
 
         for uid, attribs in sorted(UID_dictionary.items()):
             if is_storage_class(attribs):
@@ -98,5 +98,5 @@ def generate_uids(filename):
 
 
 if __name__ == "__main__":
-    pydicom_ext_dir = os.path.dirname(pydicom_ext.__file__)
-    generate_uids(os.path.join(pydicom_ext_dir, '_storage_sopclass_uids.py'))
+    pydicom_dir = os.path.dirname(pydicom.__file__)
+    generate_uids(os.path.join(pydicom_dir, '_storage_sopclass_uids.py'))

@@ -10,7 +10,7 @@ dictionary dynamically.
 
    Note that this is not a recommended solution in general but it is useful as
    a demonstration or for in-house programs only, or to get around elements
-   missing from pydicom_ext's DICOM dictionaries.
+   missing from pydicom's DICOM dictionaries.
 
 """
 
@@ -20,8 +20,8 @@ dictionary dynamically.
 
 from __future__ import print_function
 
-from pydicom_ext.datadict import DicomDictionary, keyword_dict
-from pydicom_ext.dataset import Dataset
+from pydicom.datadict import DicomDictionary, keyword_dict
+from pydicom.dataset import Dataset
 
 print(__doc__)
 
